@@ -1,0 +1,10 @@
+{
+    "pasta_raiz": "C:\\Users\\Arthur\\Documents\\.Projetos\\Projeto - Solidworks\\Engenharia_Projetos",
+    "solidworks_automatico": true,
+    "criar_pdf": true,
+    "monitorar_pasta": true,
+    "template_peca": "",
+    "template_montagem": "",
+    "template_desenho": "",
+    "modo_simulacao_sw": false
+}
