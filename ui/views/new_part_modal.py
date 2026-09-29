@@ -130,7 +130,17 @@ class NewPartModal(ctk.CTkToplevel):
             command=self._ao_mudar_linha
         )
         self.combo_linha.set("MedicalFix")
-        self.combo_linha.pack(fill="x", padx=20, pady=(0, 10))
+        self.combo_linha.pack(fill="x", padx=20, pady=(0, 4))
+
+        # Indicador visual do template de folha 2D correspondente
+        self.lbl_template_info = ctk.CTkLabel(
+            form_frame,
+            text="",
+            font=ctk.CTkFont(size=11),
+            anchor="w"
+        )
+        self.lbl_template_info.pack(fill="x", padx=22, pady=(0, 8))
+        self._atualizar_info_template("MedicalFix")
 
         # Campo Tipo
         ctk.CTkLabel(form_frame, text="Tipo de Documento:", font=ctk.CTkFont(weight="bold")).pack(anchor="w", padx=20, pady=(8, 2))
@@ -245,8 +255,26 @@ class NewPartModal(ctk.CTkToplevel):
         self.btn_selecionar_cos.pack(side="right")
 
     def _ao_mudar_linha(self, valor: str):
-        """Ao alterar a linha de produto, atualiza o contexto."""
-        pass
+        """Ao alterar a linha de produto, atualiza o contexto e o indicador do template."""
+        self._atualizar_info_template(valor)
+
+    def _atualizar_info_template(self, linha: str):
+        try:
+            if hasattr(self.sw_client, "obter_template_desenho_por_linha"):
+                tmpl = self.sw_client.obter_template_desenho_por_linha(linha)
+                if tmpl:
+                    nome_tmpl = os.path.basename(tmpl)
+                    self.lbl_template_info.configure(
+                        text=f"📐 Template de Folha 2D (.DRWDOT): {nome_tmpl}",
+                        text_color=("#1f6aa5", "#4ea8de")
+                    )
+                    return
+            self.lbl_template_info.configure(
+                text="📐 Template de Folha 2D: Padrão do SolidWorks",
+                text_color="gray"
+            )
+        except Exception:
+            pass
 
     def _ao_mudar_tipo(self, valor: str):
         if valor.upper() == "CO":
@@ -591,26 +619,32 @@ class NewPartModal(ctk.CTkToplevel):
                 componentes=self.componentes_selecionados
             )
             
-            # 2. Cria e salva o desenho 2D automaticamente (vinculado ao modelo)
+            if not ok_sw:
+                messagebox.showerror("Erro SolidWorks", msg_sw, parent=self)
+                return
+
+            # 2. Cria e salva o desenho 2D automaticamente (vinculado ao modelo e com template da linha)
             ok_drw, msg_drw = self.sw_client.criar_novo_desenho_cad(
                 codigo=codigo,
                 nome=nome,
                 tipo=tipo,
                 caminho_salvar_desenho=caminho_arquivo_desenho,
-                caminho_modelo_cad=caminho_arquivo_cad
+                caminho_modelo_cad=caminho_arquivo_cad,
+                linha_produto=linha_escolhida
             )
 
-            if not ok_sw:
-                messagebox.showwarning("Aviso SolidWorks", msg_sw, parent=self)
-            else:
-                msg_final = (
-                    f"✓ PROJETO CONFIGURADO COM SUCESSO NO SOLIDWORKS\n\n"
-                    f"• Modelo 3D: CAD\\{codigo}{ext}\n"
-                    f"• Desenho 2D: DESENHO\\{codigo}.SLDDRW\n\n"
-                    f"Ambos os arquivos já foram salvos e vinculados aos seus locais definitivos.\n"
-                    f"Ao salvar (Ctrl+S) no SolidWorks, ele salvará automaticamente sem pedir pastas."
-                )
-                messagebox.showinfo("SolidWorks", msg_final, parent=self)
+            tmpl_utilizado = self.sw_client.obter_template_desenho_por_linha(linha_escolhida) if hasattr(self.sw_client, "obter_template_desenho_por_linha") else ""
+            nome_tmpl = os.path.basename(tmpl_utilizado) if tmpl_utilizado else "Padrão"
+            msg_final = (
+                f"✓ PROJETO CONFIGURADO COM SUCESSO NO SOLIDWORKS\n\n"
+                f"• Linha de Produto: {linha_escolhida}\n"
+                f"• Template Folha 2D: {nome_tmpl}\n"
+                f"• Modelo 3D: CAD\\{codigo}{ext}\n"
+                f"• Desenho 2D: DESENHO\\{codigo}.SLDDRW\n\n"
+                f"Ambos os arquivos já foram salvos e vinculados aos seus locais definitivos.\n"
+                f"Ao salvar (Ctrl+S) no SolidWorks, ele salvará automaticamente sem pedir pastas."
+            )
+            messagebox.showinfo("SolidWorks", msg_final, parent=self)
 
         # Notifica a janela principal e fecha
         self.on_success(nova_peca)

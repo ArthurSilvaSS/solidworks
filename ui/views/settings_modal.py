@@ -25,9 +25,9 @@ class SettingsModal(ctk.CTkToplevel):
 
         self.title("Configurações — Controle CAD")
         screen_h = self.winfo_screenheight()
-        altura = min(screen_h - 100, 560)
-        self.geometry(f"580x{altura}")
-        self.minsize(500, 420)
+        altura = min(screen_h - 100, 680)
+        self.geometry(f"620x{altura}")
+        self.minsize(540, 480)
         self.resizable(True, True)
         self.grab_set()
         self.transient(parent)
@@ -148,6 +148,112 @@ class SettingsModal(ctk.CTkToplevel):
             self.switch_simulacao.select()
         self.switch_simulacao.pack(anchor="w", padx=20, pady=8)
 
+        # ------------------ TEMPLATES POR LINHA DE PRODUTO ------------------
+        sep_frame = ctk.CTkFrame(form_frame, height=2, fg_color=("#d0d0d0", "#3a3a3a"))
+        sep_frame.pack(fill="x", padx=20, pady=(15, 12))
+
+        ctk.CTkLabel(
+            form_frame,
+            text="📐 Templates de Folha de Desenho 2D (.DRWDOT) por Grupo:",
+            font=ctk.CTkFont(size=13, weight="bold"),
+            text_color=("#1f6aa5", "#4ea8de")
+        ).pack(anchor="w", padx=20, pady=(0, 2))
+
+        ctk.CTkLabel(
+            form_frame,
+            text="Ao gerar o desenho 2D de uma peça ou montagem, o template da linha selecionada será aplicado automaticamente.",
+            font=ctk.CTkFont(size=11),
+            text_color="gray",
+            wraplength=520,
+            justify="left"
+        ).pack(anchor="w", padx=20, pady=(0, 10))
+
+        # Obter caminhos atuais ou auto-detectar se vazios
+        mapa_linhas = self.config_atual.get("templates_desenho_linhas", {})
+        if not isinstance(mapa_linhas, dict):
+            mapa_linhas = {}
+
+        def _obter_val(linha: str) -> str:
+            val = mapa_linhas.get(linha, "")
+            if not val or not os.path.exists(val):
+                try:
+                    val = self.sw_client.obter_template_desenho_por_linha(linha)
+                except Exception:
+                    val = ""
+            return val or ""
+
+        # 1. MedicalFix
+        ctk.CTkLabel(form_frame, text="Template MedicalFix (.DRWDOT):", font=ctk.CTkFont(size=11, weight="bold")).pack(anchor="w", padx=20, pady=(4, 2))
+        box_med = ctk.CTkFrame(form_frame, fg_color="transparent")
+        box_med.pack(fill="x", padx=20, pady=(0, 8))
+        self.entry_tmpl_med = ctk.CTkEntry(box_med, font=ctk.CTkFont(size=11), height=34)
+        self.entry_tmpl_med.insert(0, _obter_val("MedicalFix"))
+        self.entry_tmpl_med.pack(side="left", fill="x", expand=True, padx=(0, 8))
+        ctk.CTkButton(box_med, text="BUSCAR", width=80, height=34, command=lambda: self._buscar_template(self.entry_tmpl_med)).pack(side="right")
+
+        # 2. DentFix
+        ctk.CTkLabel(form_frame, text="Template DentFix (.DRWDOT):", font=ctk.CTkFont(size=11, weight="bold")).pack(anchor="w", padx=20, pady=(4, 2))
+        box_dent = ctk.CTkFrame(form_frame, fg_color="transparent")
+        box_dent.pack(fill="x", padx=20, pady=(0, 8))
+        self.entry_tmpl_dent = ctk.CTkEntry(box_dent, font=ctk.CTkFont(size=11), height=34)
+        self.entry_tmpl_dent.insert(0, _obter_val("DentFix"))
+        self.entry_tmpl_dent.pack(side="left", fill="x", expand=True, padx=(0, 8))
+        ctk.CTkButton(box_dent, text="BUSCAR", width=80, height=34, command=lambda: self._buscar_template(self.entry_tmpl_dent)).pack(side="right")
+
+        # 3. TraumaFix
+        ctk.CTkLabel(form_frame, text="Template TraumaFix (.DRWDOT):", font=ctk.CTkFont(size=11, weight="bold")).pack(anchor="w", padx=20, pady=(4, 2))
+        box_trauma = ctk.CTkFrame(form_frame, fg_color="transparent")
+        box_trauma.pack(fill="x", padx=20, pady=(0, 8))
+        self.entry_tmpl_trauma = ctk.CTkEntry(box_trauma, font=ctk.CTkFont(size=11), height=34)
+        self.entry_tmpl_trauma.insert(0, _obter_val("TraumaFix"))
+        self.entry_tmpl_trauma.pack(side="left", fill="x", expand=True, padx=(0, 8))
+        ctk.CTkButton(box_trauma, text="BUSCAR", width=80, height=34, command=lambda: self._buscar_template(self.entry_tmpl_trauma)).pack(side="right")
+
+        # Botão Auto-detectar
+        ctk.CTkButton(
+            form_frame,
+            text="🔍 Auto-detectar Templates no SolidWorks",
+            font=ctk.CTkFont(size=11, weight="bold"),
+            fg_color="#334d66",
+            hover_color="#24384a",
+            height=32,
+            command=self._auto_detectar_templates
+        ).pack(anchor="w", padx=20, pady=(4, 15))
+
+    def _buscar_template(self, entry_widget: ctk.CTkEntry):
+        caminho_inicial = os.path.dirname(entry_widget.get().strip()) if entry_widget.get().strip() else r"C:\CONFIGURAÇÕES SOLIDWORKS"
+        if not os.path.exists(caminho_inicial):
+            caminho_inicial = r"C:\\"
+        caminho = filedialog.askopenfilename(
+            title="Selecionar Template de Desenho 2D (.DRWDOT)",
+            initialdir=caminho_inicial,
+            filetypes=[
+                ("Templates de Desenho SolidWorks (*.DRWDOT;*.drwdot)", "*.DRWDOT;*.drwdot"),
+                ("Todos os Arquivos (*.*)", "*.*")
+            ]
+        )
+        if caminho:
+            entry_widget.delete(0, "end")
+            entry_widget.insert(0, os.path.normpath(caminho))
+
+    def _auto_detectar_templates(self):
+        """Varre os diretórios do SolidWorks e preenche os campos automaticamente."""
+        achou_algum = False
+        for linha, entry in [("MedicalFix", self.entry_tmpl_med), ("DentFix", self.entry_tmpl_dent), ("TraumaFix", self.entry_tmpl_trauma)]:
+            try:
+                tmpl = self.sw_client.obter_template_desenho_por_linha(linha)
+                if tmpl and os.path.exists(tmpl):
+                    entry.delete(0, "end")
+                    entry.insert(0, os.path.normpath(tmpl))
+                    achou_algum = True
+            except Exception:
+                pass
+
+        if achou_algum:
+            messagebox.showinfo("Auto-Detecção", "Templates localizados e atualizados nos campos com sucesso!", parent=self)
+        else:
+            messagebox.showwarning("Auto-Detecção", "Não foram localizados templates automáticos nos diretórios padrão do SolidWorks.", parent=self)
+
     def _selecionar_pasta(self):
         caminho = filedialog.askdirectory(
             title="Selecione a Pasta Raiz de Engenharia",
@@ -183,7 +289,15 @@ class SettingsModal(ctk.CTkToplevel):
             "solidworks_automatico": bool(self.switch_sw_auto.get()),
             "criar_pdf": bool(self.switch_pdf.get()),
             "modo_simulacao_sw": bool(self.switch_simulacao.get()),
-            "monitorar_pasta": bool(self.switch_monitorar.get())
+            "monitorar_pasta": bool(self.switch_monitorar.get()),
+            "template_peca": self.config_atual.get("template_peca", ""),
+            "template_montagem": self.config_atual.get("template_montagem", ""),
+            "template_desenho": self.config_atual.get("template_desenho", ""),
+            "templates_desenho_linhas": {
+                "MedicalFix": self.entry_tmpl_med.get().strip(),
+                "DentFix": self.entry_tmpl_dent.get().strip(),
+                "TraumaFix": self.entry_tmpl_trauma.get().strip()
+            }
         }
 
         if salvar_config(novas_configs):

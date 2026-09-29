@@ -10,7 +10,7 @@ import sys
 import customtkinter as ctk
 import tkinter as tk
 from tkinter import messagebox
-from typing import List, Optional
+from typing import List, Optional, Dict, Tuple, Any
 
 from core.models import PecaInfo, obter_usuario_atual, LINHAS_PRODUTO
 from core.config import carregar_config, obter_pasta_raiz
@@ -1165,7 +1165,8 @@ class ControleCADApp(ctk.CTk):
                     codigo=self.peca_selecionada.codigo,
                     nome=self.peca_selecionada.nome,
                     tipo=self.peca_selecionada.tipo,
-                    caminho_salvar=caminho_novo_cad
+                    caminho_salvar=caminho_novo_cad,
+                    componentes=getattr(self.peca_selecionada, "componentes", None)
                 )
                 if not ok_sw:
                     messagebox.showerror("Erro SolidWorks", msg_sw, parent=self)
@@ -1192,13 +1193,15 @@ class ControleCADApp(ctk.CTk):
                 pasta_des = os.path.join(self.peca_selecionada.pasta_path, "DESENHO")
                 caminho_novo_des = os.path.join(pasta_des, f"{self.peca_selecionada.codigo}.SLDDRW")
                 caminho_cad = self.storage_service.obter_caminho_cad(self.peca_selecionada)
+                linha_prod = getattr(self.peca_selecionada, "linha_produto", "MedicalFix") or "MedicalFix"
 
                 ok_sw, msg_sw = self.sw_client.criar_novo_desenho_cad(
                     codigo=self.peca_selecionada.codigo,
                     nome=self.peca_selecionada.nome,
                     tipo=self.peca_selecionada.tipo,
                     caminho_salvar_desenho=caminho_novo_des,
-                    caminho_modelo_cad=caminho_cad or ""
+                    caminho_modelo_cad=caminho_cad or "",
+                    linha_produto=linha_prod
                 )
                 if not ok_sw:
                     messagebox.showerror("Erro SolidWorks", msg_sw, parent=self)

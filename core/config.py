@@ -19,6 +19,11 @@ CONFIG_PADRAO: Dict[str, Any] = {
     "template_peca": "",
     "template_montagem": "",
     "template_desenho": "",
+    "templates_desenho_linhas": {
+        "MedicalFix": "",
+        "DentFix": "",
+        "TraumaFix": ""
+    },
     "modo_simulacao_sw": False
 }
 
@@ -36,6 +41,10 @@ def carregar_config() -> Dict[str, Any]:
             for k, v in CONFIG_PADRAO.items():
                 if k not in dados:
                     dados[k] = v
+                elif isinstance(v, dict) and isinstance(dados.get(k), dict):
+                    for sub_k, sub_v in v.items():
+                        if sub_k not in dados[k]:
+                            dados[k][sub_k] = sub_v
             return dados
     except Exception as e:
         print(f"Erro ao ler {CONFIG_FILE}, usando configurações padrão: {e}")

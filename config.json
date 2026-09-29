@@ -6,5 +6,10 @@
     "template_peca": "",
     "template_montagem": "",
     "template_desenho": "",
+    "templates_desenho_linhas": {
+        "MedicalFix": "C:\\CONFIGURAÇÕES SOLIDWORKS\\Templates Medicalfix\\MEDICALFIX.DRWDOT",
+        "DentFix": "C:\\CONFIGURAÇÕES SOLIDWORKS\\Templates Medicalfix\\DENTFIX.DRWDOT",
+        "TraumaFix": "C:\\ProgramData\\SolidWorks\\SOLIDWORKS 2023\\templates\\TRAUMAFIX.DRWDOT"
+    },
     "modo_simulacao_sw": false
 }

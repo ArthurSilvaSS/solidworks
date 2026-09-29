@@ -9,6 +9,7 @@ import re
 import json
 import shutil
 import datetime
+from typing import Tuple, List, Optional, Dict, Any
 from core.models import PecaInfo, HistoricoEntrada, ComponenteItem, obter_usuario_atual, LINHAS_PRODUTO
 from core.validator import (
     validar_nome_pasta,

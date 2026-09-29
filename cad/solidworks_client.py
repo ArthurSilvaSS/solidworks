@@ -8,7 +8,7 @@ Trata todas as exceções de forma amigável para o usuário.
 import os
 import sys
 import glob
-from typing import Tuple, Optional
+from typing import Tuple, Optional, List, Dict, Any
 from core.logger import registrar_log
 from core.config import carregar_config
 from cad.sw_properties import SWPropertyManager
@@ -90,11 +90,152 @@ class SolidWorksClient:
             self._sw_app = None
             return False
 
-    def _obter_caminho_template(self, tipo: str, template_custom: str = "") -> str:
+    def descobrir_diretorios_templates(self) -> List[str]:
+        """
+        Descobre todos os diretórios de templates configurados no SolidWorks
+        e no sistema Windows (registro do Windows, preferências do SolidWorks,
+        pastas padrão e diretórios locais da empresa).
+        """
+        diretorios: List[str] = []
+
+        def _adicionar_dir(caminho: str):
+            if not caminho:
+                return
+            caminho_norm = os.path.normpath(str(caminho).strip())
+            if os.path.isdir(caminho_norm) and caminho_norm not in diretorios:
+                diretorios.append(caminho_norm)
+
+        # 1. Tenta obter das preferências do SolidWorks ativo (se conectado)
+        if self._sw_app:
+            try:
+                # swFileLocationsDocumentTemplates = 0
+                sw_paths = self._sw_app.GetUserPreferenceStringValue(0)
+                if sw_paths:
+                    for p in str(sw_paths).split(";"):
+                        _adicionar_dir(p)
+            except Exception:
+                pass
+
+        # 2. Varre o registro do Windows para todas as versões instaladas do SolidWorks
+        try:
+            import winreg
+            with winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Software\SolidWorks") as sw_root:
+                idx = 0
+                while True:
+                    try:
+                        ver_key_name = winreg.EnumKey(sw_root, idx)
+                        idx += 1
+                        ext_ref_subpath = rf"Software\SolidWorks\{ver_key_name}\ExtReferences"
+                        try:
+                            with winreg.OpenKey(winreg.HKEY_CURRENT_USER, ext_ref_subpath) as ext_key:
+                                val, _ = winreg.QueryValueEx(ext_key, "Document Template Folders")
+                                if val:
+                                    for p in str(val).split(";"):
+                                        _adicionar_dir(p)
+                        except Exception:
+                            pass
+                    except OSError:
+                        break
+        except Exception:
+            pass
+
+        # 3. Pastas padrão e comuns do SolidWorks no Windows
+        pastas_conhecidas = [
+            r"C:\CONFIGURAÇÕES SOLIDWORKS",
+            r"C:\CONFIGURACOES SOLIDWORKS",
+            r"C:\ProgramData\SolidWorks",
+            r"C:\Program Files\SOLIDWORKS Corp",
+        ]
+        for p in pastas_conhecidas:
+            _adicionar_dir(p)
+
+        # 4. Inclui também diretórios configurados no config.json se existirem
+        try:
+            cfg = carregar_config()
+            tmpl_des = cfg.get("template_desenho", "")
+            if tmpl_des and os.path.exists(tmpl_des):
+                _adicionar_dir(os.path.dirname(tmpl_des))
+            for t_path in cfg.get("templates_desenho_linhas", {}).values():
+                if t_path and os.path.exists(t_path):
+                    _adicionar_dir(os.path.dirname(t_path))
+        except Exception:
+            pass
+
+        return diretorios
+
+    def obter_template_desenho_por_linha(self, linha_produto: str) -> str:
+        """
+        Retorna o caminho do template de desenho 2D (.DRWDOT) específico
+        para a linha de produto solicitada (ex: MedicalFix, DentFix, TraumaFix).
+        
+        Prioridade:
+        1. Caminho explícito configurado em config.json para a linha.
+        2. Busca automática nos diretórios de templates do SolidWorks e Windows,
+           priorizando arquivos .DRWDOT com o nome correspondente à linha
+           (ex: DENTFIX.DRWDOT, MEDICALFIX.DRWDOT, TRAUMAFIX.DRWDOT), ignorando pastas obsoletas.
+        3. Fallback para template padrão geral de desenho.
+        """
+        if not linha_produto or not str(linha_produto).strip():
+            linha_produto = "MedicalFix"
+        linha_clean = str(linha_produto).strip()
+        linha_upper = linha_clean.upper()
+
+        # 1. Verifica no config.json
+        try:
+            cfg = carregar_config()
+            mapa_config = cfg.get("templates_desenho_linhas", {})
+            if isinstance(mapa_config, dict):
+                for k, caminho_salvo in mapa_config.items():
+                    if k.strip().upper() == linha_upper and caminho_salvo and os.path.exists(caminho_salvo):
+                        return caminho_salvo
+        except Exception:
+            pass
+
+        # 2. Busca automática nos diretórios de templates
+        diretorios = self.descobrir_diretorios_templates()
+        candidatos = []
+
+        for d in diretorios:
+            for root, _, files in os.walk(d):
+                is_obsoleto = any(obs in root.upper() for obs in ["OBSOLETO", "BACKUP", "ANTIGO", "OLD"])
+                for f in files:
+                    if not f.lower().endswith(".drwdot"):
+                        continue
+                    full_path = os.path.join(root, f)
+                    stem = os.path.splitext(f)[0].strip().upper()
+
+                    # Sistema de pontuação para o melhor template
+                    score = 0
+                    if stem == linha_upper:
+                        score = 100
+                    elif stem in (f"A4_{linha_upper}", f"A4 - {linha_upper}", f"{linha_upper} - A4", f"A3_{linha_upper}", f"A3 - {linha_upper}"):
+                        score = 80
+                    elif stem.startswith(linha_upper) or stem.endswith(linha_upper):
+                        score = 60
+                    elif linha_upper in stem:
+                        score = 40
+                    elif linha_upper in root.upper():
+                        score = 25
+                    else:
+                        continue
+
+                    if is_obsoleto:
+                        score -= 50
+
+                    candidatos.append((score, full_path))
+
+        if candidatos:
+            candidatos.sort(key=lambda x: x[0], reverse=True)
+            return candidatos[0][1]
+
+        # 3. Fallback: retorna template geral de desenho
+        return self._obter_caminho_template("desenho")
+
+    def _obter_caminho_template(self, tipo: str, template_custom: str = "", linha_produto: str = "") -> str:
         """
         Localiza o melhor caminho de template (.PRTDOT, .ASMDOT ou .DRWDOT).
-        Procura na configuração customizada, nas preferências do usuário no SolidWorks,
-        na API de templates e nos diretórios padrão do SolidWorks no sistema.
+        Procura na configuração customizada, na linha de produto (se desenho),
+        nas preferências do usuário no SolidWorks, na API de templates e nos diretórios padrão do SolidWorks no sistema.
         """
         if template_custom and os.path.exists(template_custom):
             return template_custom
@@ -102,8 +243,14 @@ class SolidWorksClient:
         tipo_lower = tipo.lower()
         is_drawing = tipo_lower in ("desenho", "drawing", "drw")
         is_assembly = (tipo_lower == "montagem")
-        
-        # 1. Verifica config.json
+
+        # Se for desenho e foi informada a linha de produto, busca o template correspondente à linha
+        if is_drawing and linha_produto:
+            tmpl_linha = self.obter_template_desenho_por_linha(linha_produto)
+            if tmpl_linha and os.path.exists(tmpl_linha):
+                return tmpl_linha
+
+        # 1. Verifica config.json geral
         cfg = carregar_config()
         if is_drawing:
             cfg_key = "template_desenho"
@@ -116,15 +263,49 @@ class SolidWorksClient:
         if cfg_template and os.path.exists(cfg_template):
             return cfg_template
 
-        # 2. Verifica preferências do SolidWorks (15 = Part, 16 = Assembly, 17 = Drawing)
+        # Se for desenho sem linha informada, tenta resolver pela linha padrão MedicalFix
         if is_drawing:
-            pref_id = 17
+            tmpl_padrao = self.obter_template_desenho_por_linha("MedicalFix")
+            if tmpl_padrao and os.path.exists(tmpl_padrao):
+                return tmpl_padrao
+
+        # 2. Busca nos Templates Padrão registrados no Registro do Windows
+        try:
+            import winreg
+            with winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Software\SolidWorks") as sw_root:
+                idx = 0
+                while True:
+                    try:
+                        ver_name = winreg.EnumKey(sw_root, idx)
+                        idx += 1
+                        reg_sub = rf"Software\SolidWorks\{ver_name}\Document Templates"
+                        try:
+                            with winreg.OpenKey(winreg.HKEY_CURRENT_USER, reg_sub) as dt_k:
+                                if is_drawing:
+                                    reg_key_name = "Default Draw Template"
+                                elif is_assembly:
+                                    reg_key_name = "Default Assy template"
+                                else:
+                                    reg_key_name = "Default Part template"
+                                reg_val, _ = winreg.QueryValueEx(dt_k, reg_key_name)
+                                if reg_val and os.path.exists(reg_val):
+                                    return reg_val
+                        except Exception:
+                            pass
+                    except OSError:
+                        break
+        except Exception:
+            pass
+
+        # 3. Verifica preferências do SolidWorks (8 = Part, 9 = Assembly, 10 = Drawing)
+        if is_drawing:
+            pref_id = 10
             doc_type_const = SW_DOC_DRAWING
         elif is_assembly:
-            pref_id = 16
+            pref_id = 9
             doc_type_const = SW_DOC_ASSEMBLY
         else:
-            pref_id = 15
+            pref_id = 8
             doc_type_const = SW_DOC_PART
 
         if self._sw_app:
@@ -135,7 +316,7 @@ class SolidWorksClient:
             except Exception:
                 pass
 
-            # 3. Tenta API GetDocumentTemplate
+            # 4. Tenta API GetDocumentTemplate
             try:
                 sw_tmpl = self._sw_app.GetDocumentTemplate(doc_type_const, "", 0, 0, 0)
                 if sw_tmpl and os.path.exists(sw_tmpl):
@@ -143,31 +324,38 @@ class SolidWorksClient:
             except Exception:
                 pass
 
-        # 4. Busca em diretórios padrão do SolidWorks no Windows (ProgramData, Program Files)
-        program_data = os.environ.get("ProgramData", r"C:\ProgramData")
-        program_files = os.environ.get("ProgramFiles", r"C:\Program Files")
-        nomes_part = ["Peça.PRTDOT", "Peca.PRTDOT", "Part.prtdot", "Part.PRTDOT", "Peça.prtdot", "Peca.prtdot"]
-        nomes_asm = ["Montagem.ASMDOT", "Assembly.asmdot", "Assembly.ASMDOT", "Montagem.asmdot"]
-        nomes_drw = ["Desenho.DRWDOT", "Desenho.drwdot", "Draw.drwdot", "Draw.DRWDOT", "Drawing.drwdot", "Drawing.DRWDOT"]
-
-        if is_drawing:
-            nomes_alvo = nomes_drw
-        elif is_assembly:
-            nomes_alvo = nomes_asm
-        else:
-            nomes_alvo = nomes_part
+        # 5. Busca nos diretórios descobertos no SolidWorks e no Windows
+        diretorios = self.descobrir_diretorios_templates()
+        ext_alvo = ".asmdot" if is_assembly else (".drwdot" if is_drawing else ".prtdot")
+        nomes_alvo = (
+            ["montagem.asmdot", "assembly.asmdot", "montagem1.asmdot"] if is_assembly
+            else (["desenho.drwdot", "drawing.drwdot"] if is_drawing
+            else ["peça.prtdot", "peca.prtdot", "part.prtdot"])
+        )
 
         candidatos = []
-        for nome in nomes_alvo:
-            candidatos.extend(glob.glob(f"{program_data}\\SolidWorks\\*\\templates\\{nome}"))
-            candidatos.extend(glob.glob(f"{program_data}\\SOLIDWORKS\\*\\templates\\{nome}"))
-            candidatos.extend(glob.glob(f"{program_files}\\SOLIDWORKS Corp\\*\\templates\\{nome}"))
-            candidatos.extend(glob.glob(f"{program_files}\\SOLIDWORKS Corp\\*\\*\\templates\\{nome}"))
-            candidatos.extend(glob.glob(f"{program_files}\\SOLIDWORKS Corp\\*\\data\\templates\\{nome}"))
+        for d in diretorios:
+            for root, _, files in os.walk(d):
+                is_obsoleto = any(obs in root.upper() for obs in ["OBSOLETO", "BACKUP", "ANTIGO", "OLD"])
+                for f in files:
+                    if not f.lower().endswith(ext_alvo):
+                        continue
+                    full_p = os.path.join(root, f)
+                    f_lower = f.lower()
+                    score = 10
+                    if f_lower in nomes_alvo:
+                        score = 100
+                    elif any(p.split(".")[0] in f_lower for p in nomes_alvo):
+                        score = 70
+                    else:
+                        score = 30
+                    if is_obsoleto:
+                        score -= 50
+                    candidatos.append((score, full_p))
 
-        for c in candidatos:
-            if os.path.exists(c):
-                return c
+        if candidatos:
+            candidatos.sort(key=lambda x: x[0], reverse=True)
+            return candidatos[0][1]
 
         return ""
 
@@ -178,20 +366,33 @@ class SolidWorksClient:
         tipo: str,
         caminho_salvar_desenho: str,
         caminho_modelo_cad: str = "",
-        template_custom: str = ""
+        template_custom: str = "",
+        linha_produto: str = ""
     ) -> Tuple[bool, str]:
         """
         Cria um novo documento de Desenho 2D (.SLDDRW),
-        vincula ao modelo 3D (se existente), preenche as Custom Properties
-        e salva automaticamente no caminho da pasta DESENHO (ex: ...\\DESENHO\\250.001.SLDDRW).
-        Dessa forma, ao trabalhar no desenho e salvar no SolidWorks, ele nunca pede pasta.
+        utilizando o template de folha correspondente ao grupo/linha de produto
+        (MedicalFix, DentFix, TraumaFix), vincula ao modelo 3D (se existente),
+        preenche as Custom Properties e salva automaticamente no caminho da pasta DESENHO.
         """
+        template_path = self._obter_caminho_template("desenho", template_custom, linha_produto=linha_produto)
+        nome_template = os.path.basename(template_path) if template_path else "Padrão SolidWorks"
+
         if self.modo_simulacao:
             try:
                 os.makedirs(os.path.dirname(caminho_salvar_desenho), exist_ok=True)
                 with open(caminho_salvar_desenho, "w", encoding="utf-8") as f:
-                    f.write(f"[SIMULAÇÃO DESENHO 2D SOLIDWORKS]\nCODIGO={codigo}\nNOME={nome}\nTIPO={tipo}\nREVISAO=A\nMODELO={caminho_modelo_cad}\n")
-                return True, f"Desenho 2D simulado criado em:\n{caminho_salvar_desenho}"
+                    f.write(
+                        f"[SIMULAÇÃO DESENHO 2D SOLIDWORKS]\n"
+                        f"CODIGO={codigo}\n"
+                        f"NOME={nome}\n"
+                        f"TIPO={tipo}\n"
+                        f"REVISAO=A\n"
+                        f"LINHA={linha_produto}\n"
+                        f"TEMPLATE={template_path}\n"
+                        f"MODELO={caminho_modelo_cad}\n"
+                    )
+                return True, f"Desenho 2D simulado criado em:\n{caminho_salvar_desenho}\n\nTemplate: {nome_template}"
             except Exception as e:
                 return False, f"Erro ao criar arquivo simulado: {e}"
 
@@ -200,8 +401,6 @@ class SolidWorksClient:
             return False, msg_conn
 
         try:
-            template_path = self._obter_caminho_template("desenho", template_custom)
-
             drw_doc = None
             if template_path:
                 try:
@@ -222,8 +421,9 @@ class SolidWorksClient:
                 return (
                     False,
                     f"O SolidWorks não conseguiu criar o documento de desenho.\n\n"
+                    f"Linha de Produto: {linha_produto or 'Padrão'}\n"
                     f"Template procurado: {template_path or 'Não localizado'}\n\n"
-                    f"Verifique se o template de desenho (Desenho.DRWDOT) existe no SolidWorks."
+                    f"Verifique se o template de desenho (.DRWDOT) existe no SolidWorks."
                 )
 
             # Preenche Custom Properties padronizadas no desenho
@@ -264,12 +464,14 @@ class SolidWorksClient:
                 {
                     "Código": codigo,
                     "Nome": nome,
+                    "Linha": linha_produto or "Não informada",
+                    "Template": template_path or "Padrão SolidWorks",
                     "Arquivo": caminho_salvar_desenho,
                     "Modelo": caminho_modelo_cad
                 }
             )
 
-            return True, f"Desenho 2D criado e salvo com sucesso em:\n{caminho_salvar_desenho}"
+            return True, f"Desenho 2D criado e salvo com sucesso no SolidWorks!\n\n• Template de Folha: {nome_template}\n• Arquivo: {os.path.basename(caminho_salvar_desenho)}"
 
         except Exception as e:
             registrar_log(
@@ -299,10 +501,17 @@ class SolidWorksClient:
                 with open(caminho_salvar, "w", encoding="utf-8") as f:
                     f.write(f"[SIMULAÇÃO SOLIDWORKS]\nCODIGO={codigo}\nNOME={nome}\nTIPO={tipo}\nREVISAO=A\n")
                     if componentes:
-                        comp_resumo = "; ".join([
-                            f"{getattr(c, 'codigo', c.get('codigo', ''))} (x{getattr(c, 'quantidade', c.get('quantidade', 1))})"
-                            for c in componentes
-                        ])
+                        itens_sim = []
+                        for c in componentes:
+                            if isinstance(c, dict):
+                                cod = str(c.get("codigo", "")).strip()
+                                qtd = c.get("quantidade", 1)
+                            else:
+                                cod = str(getattr(c, "codigo", "")).strip()
+                                qtd = getattr(c, "quantidade", 1)
+                            if cod:
+                                itens_sim.append(f"{cod} (x{qtd})")
+                        comp_resumo = "; ".join(itens_sim)
                         f.write(f"COMPONENTES_CO={comp_resumo}\n")
                 return True, f"Documento CAD simulado criado com sucesso em:\n{caminho_salvar}"
             except Exception as e:
@@ -318,7 +527,7 @@ class SolidWorksClient:
 
             # Cria novo documento a partir do template
             model_doc = None
-            if template_path:
+            if template_path and os.path.exists(template_path):
                 try:
                     model_doc = self._sw_app.NewDocument(template_path, 0, 0, 0)
                 except Exception:
@@ -327,17 +536,27 @@ class SolidWorksClient:
                     except Exception:
                         pass
 
+            # Para montagem, NUNCA usar NewDocument("") pois abre como peça (.SLDPRT)!
             if not model_doc:
-                # Tenta criação com NewDocument vazio
-                try:
-                    model_doc = self._sw_app.NewDocument("", 0, 0, 0)
-                except Exception:
-                    pass
+                if is_assembly:
+                    return (
+                        False,
+                        f"O SolidWorks não conseguiu criar o documento de Montagem (.SLDASM).\n\n"
+                        f"Template procurado: {template_path or 'Não localizado'}\n\n"
+                        f"Verifique se o template de montagem (Montagem.asmdot) existe nas pastas do SolidWorks."
+                    )
+                else:
+                    # Para peça, permite tentar template padrão do sistema
+                    try:
+                        model_doc = self._sw_app.NewDocument("", 0, 0, 0)
+                    except Exception:
+                        pass
 
             if not model_doc:
                 return (
                     False,
                     f"O SolidWorks não conseguiu criar o documento.\n\n"
+                    f"Tipo: {tipo}\n"
                     f"Template procurado: {template_path or 'Não localizado'}\n\n"
                     f"Configure o caminho do template padrão nas opções do SolidWorks ou na aba Configurações."
                 )
@@ -351,12 +570,19 @@ class SolidWorksClient:
                 tipo=tipo
             )
 
-            # Se for montagem com componentes vinculados, grava a lista nas propriedades
+            # Se for montagem com componentes vinculados, grava a lista nas propriedades de forma segura
             if componentes:
-                comp_str = "; ".join([
-                    f"{getattr(c, 'codigo', c.get('codigo', ''))} (x{getattr(c, 'quantidade', c.get('quantidade', 1))})"
-                    for c in componentes
-                ])
+                itens_reais = []
+                for c in componentes:
+                    if isinstance(c, dict):
+                        cod = str(c.get("codigo", "")).strip()
+                        qtd = c.get("quantidade", 1)
+                    else:
+                        cod = str(getattr(c, "codigo", "")).strip()
+                        qtd = getattr(c, "quantidade", 1)
+                    if cod:
+                        itens_reais.append(f"{cod} (x{qtd})")
+                comp_str = "; ".join(itens_reais)
                 SWPropertyManager.definir_propriedade(model_doc, "COMPONENTES_CO", comp_str)
                 SWPropertyManager.definir_propriedade(model_doc, "QTD_COMPONENTES_CO", str(len(componentes)))
 

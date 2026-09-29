@@ -1,0 +1,2023 @@
+
+29/09/2026 08:36
+ERRO FATAL NA APLICAÇÃO
+Erro: name 'Tuple' is not defined
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Arthur\Desktop\solidworks-master\main.py", line 38, in main
+    from ui.app import ControleCADApp
+  File "C:\Users\Arthur\Desktop\solidworks-master\ui\app.py", line 18, in <module>
+    from services.storage_service import StorageService
+  File "C:\Users\Arthur\Desktop\solidworks-master\services\storage_service.py", line 29, in <module>
+    class StorageService:
+  File "C:\Users\Arthur\Desktop\solidworks-master\services\storage_service.py", line 39, in StorageService
+    def criar_estrutura_peca(self, peca: PecaInfo) -> Tuple[bool, str]:
+                                                      ^^^^^
+NameError: name 'Tuple' is not defined. Did you mean: 'tuple'?
+
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Suporte
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_wzm1ga_h\250.001 - Suporte
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso M8
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_m0c_1lwb\250.001 - Parafuso M8
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.015
+Nome: Parafuso M8 x 20
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_m0c_1lwb\250.015 - Parafuso M8 x 20
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.016
+Nome: Parafuso M8 x 40
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_m0c_1lwb\250.016 - Parafuso M8 x 40
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 300.001
+Nome: Eixo Principal
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_m0c_1lwb\300.001 - Eixo Principal
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso A
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_yyj5tc_i\250.001 - Parafuso A
+----------------------------------------
+
+29/09/2026 08:46
+POSSÍVEL DUPLICIDADE DE CONTEÚDO
+Arquivo 1: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_yyj5tc_i\temporario.SLDPRT
+Arquivo 2: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_yyj5tc_i\250.001 - Parafuso A\CAD\250.001.SLDPRT
+Hash: 58d9da58af1231924c0f3976ccd195b81371bb379955b76475a3da41f2ea326f
+Peça: 250.001 - Parafuso A
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_3zpw74lw\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 08:46
+PEÇA IMPORTADA
+Código: CO-0001
+Nome: Rolamento 608
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\AppData\Local\Temp\controle_cad_import_test_b0yas2b2\CO-0001 - Rolamento 608
+Arquivo 3D: Rolamento.SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 08:46
+PEÇA IMPORTADA
+Código: 250.001
+Nome: Suporte Teste
+Tipo: Peça
+Linha: MedicalFix
+Revisão: B
+Pasta: C:\Users\Arthur\AppData\Local\Temp\controle_cad_import_test_u2nfozim\250.001 - Suporte Teste
+Arquivo 3D: Modelo_Teste.SLDPRT
+Arquivo 2D: Modelo_Teste.SLDDRW
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.012
+Nome: Flange de Saída
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_3ikcpg5k\250.012 - Flange de Saída
+----------------------------------------
+
+29/09/2026 08:46
+PDF AUTOMÁTICO GERADO
+Código: 250.012
+Nome: Flange de Saída
+Desenho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_3ikcpg5k\250.012 - Flange de Saída\DESENHO\250.012.SLDDRW
+PDF: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_3ikcpg5k\250.012 - Flange de Saída\PDF\250.012.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.011
+Nome: Eixo Redutor
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_ihvz6ida\250.011 - Eixo Redutor
+----------------------------------------
+
+29/09/2026 08:46
+PDF AUTOMÁTICO GERADO
+Código: 250.011
+Nome: Eixo Redutor
+Desenho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_ihvz6ida\250.011 - Eixo Redutor\DESENHO\250.011.SLDDRW
+PDF: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_ihvz6ida\250.011 - Eixo Redutor\PDF\250.011.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.010
+Nome: Base do Suporte
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_ype4sjww\250.010 - Base do Suporte
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_mxocwqup\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 08:46
+KIT CADASTRADO
+Nome: Kit Coluna
+Descrição: Instrumentais de coluna vertebral
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 08:46
+KIT CADASTRADO
+Nome: Kit Joelho
+Descrição: Prótese de joelho
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 500.001
+Nome: Placa Cervical
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_8e_tkktr\500.001 - Placa Cervical
+----------------------------------------
+
+29/09/2026 08:46
+KIT RENOMEADO
+De: Kit Coluna
+Para: Kit Coluna Avançado
+Peças Atualizadas: 1
+----------------------------------------
+
+29/09/2026 08:46
+KIT EXCLUÍDO
+Nome: Kit Joelho
+Peças Desvinculadas: 0
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: CO-0001
+Nome: Rolamento 608ZZ
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_xczwbus1\CO-0001 - Rolamento 608ZZ
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_u_hylzh9\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.003
+Nome: Pino Trava
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_r494u3u6\250.003 - Pino Trava
+----------------------------------------
+
+29/09/2026 08:46
+DESENHO EXCLUÍDO
+Código: 250.003
+Nome: Pino Trava
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_r494u3u6\250.003 - Pino Trava
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.002
+Nome: Suporte Angular
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_a45c6sl_\250.002 - Suporte Angular
+----------------------------------------
+
+29/09/2026 08:46
+DESENHO EXCLUÍDO
+Código: 250.002
+Nome: Suporte Angular
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_a45c6sl_\250.002 - Suporte Angular
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
+
+29/09/2026 08:46
+BLOQUEIO EXCLUSAO
+Motivo: Tentativa de excluir pasta raiz
+Alvo: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_yfsackn8
+----------------------------------------
+
+29/09/2026 08:46
+BLOQUEIO EXCLUSAO
+Motivo: Pasta fora da raiz
+Alvo: C:\Users\Arthur\AppData\Local\Temp
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_rb27xb7a\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 08:46
+REVISAO CRIADA
+Código: 250.001
+Nome: Parafuso
+Transição: A -> B
+Motivo: Alteração do comprimento de 30 para 35 mm
+Usuário: Arthur
+Arquivos Arquivados: 250.001.SLDPRT, 250.001.SLDDRW
+----------------------------------------
+
+29/09/2026 08:46
+KIT CADASTRADO
+Nome: Kit Guiado
+Descrição: Kit cirúrgico odontológico
+Linha: DentFix
+----------------------------------------
+
+29/09/2026 08:46
+KIT CADASTRADO
+Nome: Kit Buco 2.0
+Descrição: Placas e parafusos bucomaxilo
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 08:46
+KIT CADASTRADO
+Nome: Kit Trauma Fêmur
+Descrição: Hastes intramedulares
+Linha: TraumaFix
+----------------------------------------
+
+29/09/2026 08:46
+KIT CADASTRADO
+Nome: Kit Universal Chaves
+Descrição: Instrumentais universais
+Linha: Todas as Linhas
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 300.001
+Nome: Guia Cirúrgico Estreito
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_j8fp691z\300.001 - Guia Cirúrgico Estreito
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 300.002
+Nome: Placa Reta 4 Furos
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_j8fp691z\300.002 - Placa Reta 4 Furos
+----------------------------------------
+
+29/09/2026 08:46
+KIT RENOMEADO
+De: Kit Trauma Fêmur
+Para: Kit Trauma Fêmur Avançado
+Peças Atualizadas: 0
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: CO-0001
+Nome: Rolamento 608ZZ
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_aqduk2_b\CO-0001 - Rolamento 608ZZ
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: CO-0002
+Nome: Anel Trava
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_aqduk2_b\CO-0002 - Anel Trava
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 100.001
+Nome: Conjunto Cabeçote
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_aqduk2_b\100.001 - Conjunto Cabeçote
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 200.001
+Nome: Torquímetro Cirúrgico
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_7ft_q1gb\200.001 - Torquímetro Cirúrgico
+----------------------------------------
+
+29/09/2026 08:46
+PROJETO CRIADO
+Código: 200.002
+Nome: Chave Catraca
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_7ft_q1gb\200.002 - Chave Catraca
+----------------------------------------
+
+29/09/2026 08:49
+PROJETO CRIADO
+Código: CO-0478
+Nome: Corpo da Ucla Cromo-cob
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob
+----------------------------------------
+
+29/09/2026 08:50
+DOCUMENTO CAD CRIADO NO SOLIDWORKS
+Código: CO-0478
+Nome: Corpo da Ucla Cromo-cob
+Arquivo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\CAD\CO-0478.SLDPRT
+Tipo: CO
+----------------------------------------
+
+29/09/2026 08:50
+DESENHO 2D CRIADO NO SOLIDWORKS
+Código: CO-0478
+Nome: Corpo da Ucla Cromo-cob
+Arquivo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\DESENHO\CO-0478.SLDDRW
+Modelo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\CAD\CO-0478.SLDPRT
+----------------------------------------
+
+29/09/2026 08:50
+PDF GERADO
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\DESENHO\CO-0478.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\PDF\CO-0478.pdf
+----------------------------------------
+
+29/09/2026 08:50
+PDF AUTOMÁTICO GERADO
+Código: CO-0478
+Nome: Corpo da Ucla Cromo-cob
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\DESENHO\CO-0478.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\PDF\CO-0478.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 08:54
+PDF GERADO
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\DESENHO\CO-0478.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\PDF\CO-0478.pdf
+----------------------------------------
+
+29/09/2026 08:54
+PDF AUTOMÁTICO GERADO
+Código: CO-0478
+Nome: Corpo da Ucla Cromo-cob
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\DESENHO\CO-0478.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob\PDF\CO-0478.pdf
+Motivo: Desenho 2D foi alterado após o último PDF (necessário atualizar).
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.001
+Nome: Suporte
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_xx0ebm3y\250.001 - Suporte
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso M8
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_r_6ke2wk\250.001 - Parafuso M8
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.015
+Nome: Parafuso M8 x 20
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_r_6ke2wk\250.015 - Parafuso M8 x 20
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.016
+Nome: Parafuso M8 x 40
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_r_6ke2wk\250.016 - Parafuso M8 x 40
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 300.001
+Nome: Eixo Principal
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_r_6ke2wk\300.001 - Eixo Principal
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso A
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_3e0paogi\250.001 - Parafuso A
+----------------------------------------
+
+29/09/2026 09:06
+POSSÍVEL DUPLICIDADE DE CONTEÚDO
+Arquivo 1: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_3e0paogi\temporario.SLDPRT
+Arquivo 2: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_3e0paogi\250.001 - Parafuso A\CAD\250.001.SLDPRT
+Hash: 58d9da58af1231924c0f3976ccd195b81371bb379955b76475a3da41f2ea326f
+Peça: 250.001 - Parafuso A
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_1f3eqk9p\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:06
+PEÇA IMPORTADA
+Código: CO-0001
+Nome: Rolamento 608
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\AppData\Local\Temp\controle_cad_import_test_iv4i47r2\CO-0001 - Rolamento 608
+Arquivo 3D: Rolamento.SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:06
+PEÇA IMPORTADA
+Código: 250.001
+Nome: Suporte Teste
+Tipo: Peça
+Linha: MedicalFix
+Revisão: B
+Pasta: C:\Users\Arthur\AppData\Local\Temp\controle_cad_import_test_weepetbz\250.001 - Suporte Teste
+Arquivo 3D: Modelo_Teste.SLDPRT
+Arquivo 2D: Modelo_Teste.SLDDRW
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.012
+Nome: Flange de Saída
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_jguftpse\250.012 - Flange de Saída
+----------------------------------------
+
+29/09/2026 09:06
+PDF AUTOMÁTICO GERADO
+Código: 250.012
+Nome: Flange de Saída
+Desenho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_jguftpse\250.012 - Flange de Saída\DESENHO\250.012.SLDDRW
+PDF: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_jguftpse\250.012 - Flange de Saída\PDF\250.012.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.011
+Nome: Eixo Redutor
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_8xjm91zl\250.011 - Eixo Redutor
+----------------------------------------
+
+29/09/2026 09:06
+PDF AUTOMÁTICO GERADO
+Código: 250.011
+Nome: Eixo Redutor
+Desenho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_8xjm91zl\250.011 - Eixo Redutor\DESENHO\250.011.SLDDRW
+PDF: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_8xjm91zl\250.011 - Eixo Redutor\PDF\250.011.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.010
+Nome: Base do Suporte
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_a8xhwanf\250.010 - Base do Suporte
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_iv89oyvk\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:06
+KIT CADASTRADO
+Nome: Kit Coluna
+Descrição: Instrumentais de coluna vertebral
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 09:06
+KIT CADASTRADO
+Nome: Kit Joelho
+Descrição: Prótese de joelho
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 500.001
+Nome: Placa Cervical
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_zquclmj_\500.001 - Placa Cervical
+----------------------------------------
+
+29/09/2026 09:06
+KIT RENOMEADO
+De: Kit Coluna
+Para: Kit Coluna Avançado
+Peças Atualizadas: 1
+----------------------------------------
+
+29/09/2026 09:06
+KIT EXCLUÍDO
+Nome: Kit Joelho
+Peças Desvinculadas: 0
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: CO-0001
+Nome: Rolamento 608ZZ
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_9f5qrpen\CO-0001 - Rolamento 608ZZ
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_km5tbjw6\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.003
+Nome: Pino Trava
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_04p8v17a\250.003 - Pino Trava
+----------------------------------------
+
+29/09/2026 09:06
+DESENHO EXCLUÍDO
+Código: 250.003
+Nome: Pino Trava
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_04p8v17a\250.003 - Pino Trava
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.002
+Nome: Suporte Angular
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_d6hmjgys\250.002 - Suporte Angular
+----------------------------------------
+
+29/09/2026 09:06
+DESENHO EXCLUÍDO
+Código: 250.002
+Nome: Suporte Angular
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_d6hmjgys\250.002 - Suporte Angular
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
+
+29/09/2026 09:06
+BLOQUEIO EXCLUSAO
+Motivo: Tentativa de excluir pasta raiz
+Alvo: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_zo_eltv5
+----------------------------------------
+
+29/09/2026 09:06
+BLOQUEIO EXCLUSAO
+Motivo: Pasta fora da raiz
+Alvo: C:\Users\Arthur\AppData\Local\Temp
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_u6ltu31e\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:06
+REVISAO CRIADA
+Código: 250.001
+Nome: Parafuso
+Transição: A -> B
+Motivo: Alteração do comprimento de 30 para 35 mm
+Usuário: Arthur
+Arquivos Arquivados: 250.001.SLDPRT, 250.001.SLDDRW
+----------------------------------------
+
+29/09/2026 09:06
+KIT CADASTRADO
+Nome: Kit Guiado
+Descrição: Kit cirúrgico odontológico
+Linha: DentFix
+----------------------------------------
+
+29/09/2026 09:06
+KIT CADASTRADO
+Nome: Kit Buco 2.0
+Descrição: Placas e parafusos bucomaxilo
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 09:06
+KIT CADASTRADO
+Nome: Kit Trauma Fêmur
+Descrição: Hastes intramedulares
+Linha: TraumaFix
+----------------------------------------
+
+29/09/2026 09:06
+KIT CADASTRADO
+Nome: Kit Universal Chaves
+Descrição: Instrumentais universais
+Linha: Todas as Linhas
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 300.001
+Nome: Guia Cirúrgico Estreito
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_7sh02pel\300.001 - Guia Cirúrgico Estreito
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 300.002
+Nome: Placa Reta 4 Furos
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_7sh02pel\300.002 - Placa Reta 4 Furos
+----------------------------------------
+
+29/09/2026 09:06
+KIT RENOMEADO
+De: Kit Trauma Fêmur
+Para: Kit Trauma Fêmur Avançado
+Peças Atualizadas: 0
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: CO-0001
+Nome: Rolamento 608ZZ
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_bboeoka5\CO-0001 - Rolamento 608ZZ
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: CO-0002
+Nome: Anel Trava
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_bboeoka5\CO-0002 - Anel Trava
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 100.001
+Nome: Conjunto Cabeçote
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_bboeoka5\100.001 - Conjunto Cabeçote
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 200.001
+Nome: Torquímetro Cirúrgico
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_isa50vbs\200.001 - Torquímetro Cirúrgico
+----------------------------------------
+
+29/09/2026 09:06
+PROJETO CRIADO
+Código: 200.002
+Nome: Chave Catraca
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_isa50vbs\200.002 - Chave Catraca
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.001
+Nome: Suporte
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test__i17w7wt\250.001 - Suporte
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso M8
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_fu_quydx\250.001 - Parafuso M8
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.015
+Nome: Parafuso M8 x 20
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_fu_quydx\250.015 - Parafuso M8 x 20
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.016
+Nome: Parafuso M8 x 40
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_fu_quydx\250.016 - Parafuso M8 x 40
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 300.001
+Nome: Eixo Principal
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_fu_quydx\300.001 - Eixo Principal
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso A
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_4l2nbcqi\250.001 - Parafuso A
+----------------------------------------
+
+29/09/2026 09:07
+POSSÍVEL DUPLICIDADE DE CONTEÚDO
+Arquivo 1: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_4l2nbcqi\temporario.SLDPRT
+Arquivo 2: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_4l2nbcqi\250.001 - Parafuso A\CAD\250.001.SLDPRT
+Hash: 58d9da58af1231924c0f3976ccd195b81371bb379955b76475a3da41f2ea326f
+Peça: 250.001 - Parafuso A
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_jqfnysrn\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:07
+PEÇA IMPORTADA
+Código: CO-0001
+Nome: Rolamento 608
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\AppData\Local\Temp\controle_cad_import_test_20s6fbln\CO-0001 - Rolamento 608
+Arquivo 3D: Rolamento.SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:07
+PEÇA IMPORTADA
+Código: 250.001
+Nome: Suporte Teste
+Tipo: Peça
+Linha: MedicalFix
+Revisão: B
+Pasta: C:\Users\Arthur\AppData\Local\Temp\controle_cad_import_test_g244usgn\250.001 - Suporte Teste
+Arquivo 3D: Modelo_Teste.SLDPRT
+Arquivo 2D: Modelo_Teste.SLDDRW
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.012
+Nome: Flange de Saída
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_8f5crv3r\250.012 - Flange de Saída
+----------------------------------------
+
+29/09/2026 09:07
+PDF AUTOMÁTICO GERADO
+Código: 250.012
+Nome: Flange de Saída
+Desenho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_8f5crv3r\250.012 - Flange de Saída\DESENHO\250.012.SLDDRW
+PDF: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_8f5crv3r\250.012 - Flange de Saída\PDF\250.012.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.011
+Nome: Eixo Redutor
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_p5rylcu3\250.011 - Eixo Redutor
+----------------------------------------
+
+29/09/2026 09:07
+PDF AUTOMÁTICO GERADO
+Código: 250.011
+Nome: Eixo Redutor
+Desenho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_p5rylcu3\250.011 - Eixo Redutor\DESENHO\250.011.SLDDRW
+PDF: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_p5rylcu3\250.011 - Eixo Redutor\PDF\250.011.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.010
+Nome: Base do Suporte
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_y8p9e1r0\250.010 - Base do Suporte
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_tkbn_i7x\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:07
+KIT CADASTRADO
+Nome: Kit Coluna
+Descrição: Instrumentais de coluna vertebral
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 09:07
+KIT CADASTRADO
+Nome: Kit Joelho
+Descrição: Prótese de joelho
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 500.001
+Nome: Placa Cervical
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_kf42eif9\500.001 - Placa Cervical
+----------------------------------------
+
+29/09/2026 09:07
+KIT RENOMEADO
+De: Kit Coluna
+Para: Kit Coluna Avançado
+Peças Atualizadas: 1
+----------------------------------------
+
+29/09/2026 09:07
+KIT EXCLUÍDO
+Nome: Kit Joelho
+Peças Desvinculadas: 0
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: CO-0001
+Nome: Rolamento 608ZZ
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_i3yb_8r2\CO-0001 - Rolamento 608ZZ
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_anwub0xj\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.003
+Nome: Pino Trava
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_y83jq5qc\250.003 - Pino Trava
+----------------------------------------
+
+29/09/2026 09:07
+DESENHO EXCLUÍDO
+Código: 250.003
+Nome: Pino Trava
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_y83jq5qc\250.003 - Pino Trava
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.002
+Nome: Suporte Angular
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_uzeeo3cf\250.002 - Suporte Angular
+----------------------------------------
+
+29/09/2026 09:07
+DESENHO EXCLUÍDO
+Código: 250.002
+Nome: Suporte Angular
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_uzeeo3cf\250.002 - Suporte Angular
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
+
+29/09/2026 09:07
+BLOQUEIO EXCLUSAO
+Motivo: Tentativa de excluir pasta raiz
+Alvo: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_xo5sn106
+----------------------------------------
+
+29/09/2026 09:07
+BLOQUEIO EXCLUSAO
+Motivo: Pasta fora da raiz
+Alvo: C:\Users\Arthur\AppData\Local\Temp
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_p975nvmp\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:07
+REVISAO CRIADA
+Código: 250.001
+Nome: Parafuso
+Transição: A -> B
+Motivo: Alteração do comprimento de 30 para 35 mm
+Usuário: Arthur
+Arquivos Arquivados: 250.001.SLDPRT, 250.001.SLDDRW
+----------------------------------------
+
+29/09/2026 09:07
+KIT CADASTRADO
+Nome: Kit Guiado
+Descrição: Kit cirúrgico odontológico
+Linha: DentFix
+----------------------------------------
+
+29/09/2026 09:07
+KIT CADASTRADO
+Nome: Kit Buco 2.0
+Descrição: Placas e parafusos bucomaxilo
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 09:07
+KIT CADASTRADO
+Nome: Kit Trauma Fêmur
+Descrição: Hastes intramedulares
+Linha: TraumaFix
+----------------------------------------
+
+29/09/2026 09:07
+KIT CADASTRADO
+Nome: Kit Universal Chaves
+Descrição: Instrumentais universais
+Linha: Todas as Linhas
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 300.001
+Nome: Guia Cirúrgico Estreito
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_ql3h3q6c\300.001 - Guia Cirúrgico Estreito
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 300.002
+Nome: Placa Reta 4 Furos
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_ql3h3q6c\300.002 - Placa Reta 4 Furos
+----------------------------------------
+
+29/09/2026 09:07
+KIT RENOMEADO
+De: Kit Trauma Fêmur
+Para: Kit Trauma Fêmur Avançado
+Peças Atualizadas: 0
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: CO-0001
+Nome: Rolamento 608ZZ
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_69axn79z\CO-0001 - Rolamento 608ZZ
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: CO-0002
+Nome: Anel Trava
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_69axn79z\CO-0002 - Anel Trava
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 100.001
+Nome: Conjunto Cabeçote
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_69axn79z\100.001 - Conjunto Cabeçote
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 200.001
+Nome: Torquímetro Cirúrgico
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_pj7ryasr\200.001 - Torquímetro Cirúrgico
+----------------------------------------
+
+29/09/2026 09:07
+PROJETO CRIADO
+Código: 200.002
+Nome: Chave Catraca
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_pj7ryasr\200.002 - Chave Catraca
+----------------------------------------
+
+29/09/2026 09:07
+DESENHO EXCLUÍDO
+Código: CO-0478
+Nome: Corpo da Ucla Cromo-cob
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0478 - Corpo da Ucla Cromo-cob
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
+
+29/09/2026 09:10
+KIT CADASTRADO
+Nome: DTI 13
+Descrição: Kit cirrurgia guiada DTI 13
+Linha: DentFix
+----------------------------------------
+
+29/09/2026 09:10
+PROJETO CRIADO
+Código: 113.001
+Nome: Puch 4.0
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0
+----------------------------------------
+
+29/09/2026 09:11
+DOCUMENTO CAD CRIADO NO SOLIDWORKS
+Código: 113.001
+Nome: Puch 4.0
+Arquivo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\CAD\113.001.SLDPRT
+Tipo: Peça
+----------------------------------------
+
+29/09/2026 09:11
+DESENHO 2D CRIADO NO SOLIDWORKS
+Código: 113.001
+Nome: Puch 4.0
+Linha: DentFix
+Template: C:\CONFIGURAÇÕES SOLIDWORKS\Templates Medicalfix\DENTFIX.DRWDOT
+Arquivo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\DESENHO\113.001.SLDDRW
+Modelo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\CAD\113.001.SLDPRT
+----------------------------------------
+
+29/09/2026 09:11
+PDF GERADO
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\DESENHO\113.001.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\PDF\113.001.pdf
+----------------------------------------
+
+29/09/2026 09:11
+PDF AUTOMÁTICO GERADO
+Código: 113.001
+Nome: Puch 4.0
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\DESENHO\113.001.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\PDF\113.001.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 09:17
+PDF GERADO
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\DESENHO\113.001.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\PDF\113.001.pdf
+----------------------------------------
+
+29/09/2026 09:17
+PDF AUTOMÁTICO GERADO
+Código: 113.001
+Nome: Puch 4.0
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\DESENHO\113.001.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\PDF\113.001.pdf
+Motivo: Desenho 2D foi alterado após o último PDF (necessário atualizar).
+----------------------------------------
+
+29/09/2026 09:21
+REVISAO CRIADA
+Código: 113.001
+Nome: Puch 4.0
+Transição: A -> B
+Motivo: mudaça do tamanho da haste
+Usuário: arthur
+Arquivos Arquivados: 113.001.SLDPRT, 113.001.SLDDRW, 113.001.pdf
+----------------------------------------
+
+29/09/2026 09:23
+PDF GERADO
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\DESENHO\113.001.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\113.001 - Puch 4.0\PDF\113.001.pdf
+----------------------------------------
+
+29/09/2026 09:26
+PEÇA IMPORTADA
+Código: 114.110
+Nome: Parafuso OP Premium 1.6 - 2.5
+Tipo: Peça
+Linha: DentFix
+Revisão: A
+Pasta: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\114.110 - Parafuso OP Premium 1.6 - 2.5
+Arquivo 3D: Parafuso OP Premium 1.6 - 2.5.SLDPRT
+Arquivo 2D: Parafuso OP Premium 1.6 - 2.5.SLDDRW
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:26
+PDF GERADO
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\114.110 - Parafuso OP Premium 1.6 - 2.5\DESENHO\114.110.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\114.110 - Parafuso OP Premium 1.6 - 2.5\PDF\114.110.pdf
+----------------------------------------
+
+29/09/2026 09:26
+PDF AUTOMÁTICO GERADO
+Código: 114.110
+Nome: Parafuso OP Premium 1.6 - 2.5
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\114.110 - Parafuso OP Premium 1.6 - 2.5\DESENHO\114.110.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\114.110 - Parafuso OP Premium 1.6 - 2.5\PDF\114.110.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 09:27
+KIT CADASTRADO
+Nome: Projeto Peru
+Descrição: Projeto Peru
+Linha: DentFix
+----------------------------------------
+
+29/09/2026 09:30
+PEÇA IMPORTADA
+Código: CO-0956
+Nome: Mola (Broca Automática)
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-0956 - Mola (Broca Automática)
+Arquivo 3D: CO-0956 - Mola (Broca Automática).SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:30
+PEÇA IMPORTADA
+Código: CO-1601
+Nome: Arruela de Trava (Broca Automática)
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-1601 - Arruela de Trava (Broca Automática)
+Arquivo 3D: CO-1601 - Arruela de Trava (Broca Automática).SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:31
+PEÇA IMPORTADA
+Código: CO-1810
+Nome: Bucha Fundida Broca Automática
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-1810 - Bucha Fundida Broca Automática
+Arquivo 3D: CO-1810 - Bucha Fundida Broca Automática.SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:31
+PEÇA IMPORTADA
+Código: CO-1873
+Nome: Bucha de Bronze (Broca Automática)
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-1873 - Bucha de Bronze (Broca Automática)
+Arquivo 3D: CO-1873 - Bucha de Bronze (Broca Automática).SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:31
+PEÇA IMPORTADA
+Código: CO-1650
+Nome: Broca Central (Broca Automática Infantil)
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-1650 - Broca Central (Broca Automática Infantil)
+Arquivo 3D: CO-1650 - Broca Central (Broca Automática Infantil).SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:32
+PEÇA IMPORTADA
+Código: CO-1651
+Nome: Escareador (Broca Automática Infantil)
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-1651 - Escareador (Broca Automática Infantil)
+Arquivo 3D: CO-1651 - Escareador (Broca Automática Infantil).SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:32
+PEÇA IMPORTADA
+Código: CO-1853
+Nome: Peça-01 ER-1 (B. Autom Infantil)-Laranja
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\CO-1853 - Peça-01 ER-1 (B. Autom Infantil)-Laranja
+Arquivo 3D: CO-1853 - Peça-01 ER-1 (B. Autom Infantil)-Laranja.SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:34
+PROJETO CRIADO
+Código: 000.000
+Nome: Broca Auto.Craniotom. 9.0-6.0 EN-1
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1
+----------------------------------------
+
+29/09/2026 09:34
+ERRO CRIAR DOCUMENTO SOLIDWORKS
+Código: 000.000
+Arquivo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\CAD\000.000.SLDASM
+Erro: 'ComponenteItem' object has no attribute 'get'
+----------------------------------------
+
+29/09/2026 09:34
+DESENHO 2D CRIADO NO SOLIDWORKS
+Código: 000.000
+Nome: Broca Auto.Craniotom. 9.0-6.0 EN-1
+Linha: TraumaFix
+Template: C:\ProgramData\SolidWorks\SOLIDWORKS 2023\templates\TRAUMAFIX.DRWDOT
+Arquivo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\000.000.SLDDRW
+Modelo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\CAD\000.000.SLDASM
+----------------------------------------
+
+29/09/2026 09:36
+AVISO FECHAR DOCUMENTO SW
+Doc: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\000.000.SLDDRW
+Erro: SldWorks.Application.CloseDoc
+----------------------------------------
+
+29/09/2026 09:36
+AVISO FECHAR DOCUMENTO SW
+Doc: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\~$000.000.SLDDRW
+Erro: SldWorks.Application.CloseDoc
+----------------------------------------
+
+29/09/2026 09:36
+DESENHO EXCLUÍDO
+Código: 000.000
+Nome: Broca Auto.Craniotom. 9.0-6.0 EN-1
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Suporte
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_j_79opby\250.001 - Suporte
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso M8
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_nkvxk4qk\250.001 - Parafuso M8
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.015
+Nome: Parafuso M8 x 20
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_nkvxk4qk\250.015 - Parafuso M8 x 20
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.016
+Nome: Parafuso M8 x 40
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_nkvxk4qk\250.016 - Parafuso M8 x 40
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 300.001
+Nome: Eixo Principal
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_nkvxk4qk\300.001 - Eixo Principal
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso A
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_q874hofo\250.001 - Parafuso A
+----------------------------------------
+
+29/09/2026 09:46
+POSSÍVEL DUPLICIDADE DE CONTEÚDO
+Arquivo 1: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_q874hofo\temporario.SLDPRT
+Arquivo 2: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_q874hofo\250.001 - Parafuso A\CAD\250.001.SLDPRT
+Hash: 58d9da58af1231924c0f3976ccd195b81371bb379955b76475a3da41f2ea326f
+Peça: 250.001 - Parafuso A
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_dup_test_pl503csx\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:46
+PEÇA IMPORTADA
+Código: CO-0001
+Nome: Rolamento 608
+Tipo: CO
+Linha: MedicalFix
+Revisão: A
+Pasta: C:\Users\Arthur\AppData\Local\Temp\controle_cad_import_test_zasnx_nj\CO-0001 - Rolamento 608
+Arquivo 3D: Rolamento.SLDPRT
+Arquivo 2D: None
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:46
+PEÇA IMPORTADA
+Código: 250.001
+Nome: Suporte Teste
+Tipo: Peça
+Linha: MedicalFix
+Revisão: B
+Pasta: C:\Users\Arthur\AppData\Local\Temp\controle_cad_import_test_uhynat94\250.001 - Suporte Teste
+Arquivo 3D: Modelo_Teste.SLDPRT
+Arquivo 2D: Modelo_Teste.SLDDRW
+Ação: Cópia
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.012
+Nome: Flange de Saída
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_5i14p36p\250.012 - Flange de Saída
+----------------------------------------
+
+29/09/2026 09:46
+PDF AUTOMÁTICO GERADO
+Código: 250.012
+Nome: Flange de Saída
+Desenho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_5i14p36p\250.012 - Flange de Saída\DESENHO\250.012.SLDDRW
+PDF: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_5i14p36p\250.012 - Flange de Saída\PDF\250.012.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.011
+Nome: Eixo Redutor
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_r11ituk3\250.011 - Eixo Redutor
+----------------------------------------
+
+29/09/2026 09:46
+PDF AUTOMÁTICO GERADO
+Código: 250.011
+Nome: Eixo Redutor
+Desenho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_r11ituk3\250.011 - Eixo Redutor\DESENHO\250.011.SLDDRW
+PDF: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_r11ituk3\250.011 - Eixo Redutor\PDF\250.011.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.010
+Nome: Base do Suporte
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_pdf_test_ywr72qy0\250.010 - Base do Suporte
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_9eqcl9y4\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:46
+KIT CADASTRADO
+Nome: Kit Coluna
+Descrição: Instrumentais de coluna vertebral
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 09:46
+KIT CADASTRADO
+Nome: Kit Joelho
+Descrição: Prótese de joelho
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 500.001
+Nome: Placa Cervical
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_e_e3157h\500.001 - Placa Cervical
+----------------------------------------
+
+29/09/2026 09:46
+KIT RENOMEADO
+De: Kit Coluna
+Para: Kit Coluna Avançado
+Peças Atualizadas: 1
+----------------------------------------
+
+29/09/2026 09:46
+KIT EXCLUÍDO
+Nome: Kit Joelho
+Peças Desvinculadas: 0
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: CO-0001
+Nome: Rolamento 608ZZ
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_lm24jyak\CO-0001 - Rolamento 608ZZ
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test__axvtxsa\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.003
+Nome: Pino Trava
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_j5tjvb40\250.003 - Pino Trava
+----------------------------------------
+
+29/09/2026 09:46
+DESENHO EXCLUÍDO
+Código: 250.003
+Nome: Pino Trava
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_j5tjvb40\250.003 - Pino Trava
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.002
+Nome: Suporte Angular
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_8gl81l13\250.002 - Suporte Angular
+----------------------------------------
+
+29/09/2026 09:46
+DESENHO EXCLUÍDO
+Código: 250.002
+Nome: Suporte Angular
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_8gl81l13\250.002 - Suporte Angular
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
+
+29/09/2026 09:46
+BLOQUEIO EXCLUSAO
+Motivo: Tentativa de excluir pasta raiz
+Alvo: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_8foqtgqy
+----------------------------------------
+
+29/09/2026 09:46
+BLOQUEIO EXCLUSAO
+Motivo: Pasta fora da raiz
+Alvo: C:\Users\Arthur\AppData\Local\Temp
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 250.001
+Nome: Parafuso
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_m5fdgt30\250.001 - Parafuso
+----------------------------------------
+
+29/09/2026 09:46
+REVISAO CRIADA
+Código: 250.001
+Nome: Parafuso
+Transição: A -> B
+Motivo: Alteração do comprimento de 30 para 35 mm
+Usuário: Arthur
+Arquivos Arquivados: 250.001.SLDPRT, 250.001.SLDDRW
+----------------------------------------
+
+29/09/2026 09:46
+KIT CADASTRADO
+Nome: Kit Guiado
+Descrição: Kit cirúrgico odontológico
+Linha: DentFix
+----------------------------------------
+
+29/09/2026 09:46
+KIT CADASTRADO
+Nome: Kit Buco 2.0
+Descrição: Placas e parafusos bucomaxilo
+Linha: MedicalFix
+----------------------------------------
+
+29/09/2026 09:46
+KIT CADASTRADO
+Nome: Kit Trauma Fêmur
+Descrição: Hastes intramedulares
+Linha: TraumaFix
+----------------------------------------
+
+29/09/2026 09:46
+KIT CADASTRADO
+Nome: Kit Universal Chaves
+Descrição: Instrumentais universais
+Linha: Todas as Linhas
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 300.001
+Nome: Guia Cirúrgico Estreito
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_l4cs4wuo\300.001 - Guia Cirúrgico Estreito
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 300.002
+Nome: Placa Reta 4 Furos
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_l4cs4wuo\300.002 - Placa Reta 4 Furos
+----------------------------------------
+
+29/09/2026 09:46
+KIT RENOMEADO
+De: Kit Trauma Fêmur
+Para: Kit Trauma Fêmur Avançado
+Peças Atualizadas: 0
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: CO-0001
+Nome: Rolamento 608ZZ
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test__ev6b_q3\CO-0001 - Rolamento 608ZZ
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: CO-0002
+Nome: Anel Trava
+Tipo: CO
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test__ev6b_q3\CO-0002 - Anel Trava
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 100.001
+Nome: Conjunto Cabeçote
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test__ev6b_q3\100.001 - Conjunto Cabeçote
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 200.001
+Nome: Torquímetro Cirúrgico
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_8o3yd8k5\200.001 - Torquímetro Cirúrgico
+----------------------------------------
+
+29/09/2026 09:46
+PROJETO CRIADO
+Código: 200.002
+Nome: Chave Catraca
+Tipo: Peça
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\AppData\Local\Temp\controle_cad_test_8o3yd8k5\200.002 - Chave Catraca
+----------------------------------------
+
+29/09/2026 09:48
+PROJETO CRIADO
+Código: 000.000
+Nome: Broca Auto.Craniotom. 9.0-6.0 EN-1
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Caminho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1
+----------------------------------------
+
+29/09/2026 09:49
+DOCUMENTO CAD CRIADO NO SOLIDWORKS
+Código: 000.000
+Nome: Broca Auto.Craniotom. 9.0-6.0 EN-1
+Arquivo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\CAD\000.000.SLDASM
+Tipo: Montagem
+----------------------------------------
+
+29/09/2026 09:49
+DESENHO 2D CRIADO NO SOLIDWORKS
+Código: 000.000
+Nome: Broca Auto.Craniotom. 9.0-6.0 EN-1
+Linha: MedicalFix
+Template: C:\CONFIGURAÇÕES SOLIDWORKS\Templates Medicalfix\MEDICALFIX.DRWDOT
+Arquivo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\000.000.SLDDRW
+Modelo: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\CAD\000.000.SLDASM
+----------------------------------------
+
+29/09/2026 09:49
+PDF GERADO
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\000.000.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\PDF\000.000.pdf
+----------------------------------------
+
+29/09/2026 09:49
+PDF AUTOMÁTICO GERADO
+Código: 000.000
+Nome: Broca Auto.Craniotom. 9.0-6.0 EN-1
+Desenho: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\000.000.SLDDRW
+PDF: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\PDF\000.000.pdf
+Motivo: PDF ainda não foi gerado.
+----------------------------------------
+
+29/09/2026 09:49
+AVISO FECHAR DOCUMENTO SW
+Doc: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\CAD\000.000.SLDASM
+Erro: SldWorks.Application.CloseDoc
+----------------------------------------
+
+29/09/2026 09:49
+AVISO FECHAR DOCUMENTO SW
+Doc: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\000.000.SLDDRW
+Erro: SldWorks.Application.CloseDoc
+----------------------------------------
+
+29/09/2026 09:49
+AVISO FECHAR DOCUMENTO SW
+Doc: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\~$000.000.SLDDRW
+Erro: SldWorks.Application.CloseDoc
+----------------------------------------
+
+29/09/2026 09:50
+AVISO FECHAR DOCUMENTO SW
+Doc: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\000.000.SLDDRW
+Erro: SldWorks.Application.CloseDoc
+----------------------------------------
+
+29/09/2026 09:50
+AVISO FECHAR DOCUMENTO SW
+Doc: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\000.000.SLDDRW
+Erro: SldWorks.Application.CloseDoc
+----------------------------------------
+
+29/09/2026 09:50
+AVISO FECHAR DOCUMENTO SW
+Doc: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1\DESENHO\000.000.SLDDRW
+Erro: SldWorks.Application.CloseDoc
+----------------------------------------
+
+29/09/2026 09:50
+DESENHO EXCLUÍDO
+Código: 000.000
+Nome: Broca Auto.Craniotom. 9.0-6.0 EN-1
+Tipo: Montagem
+Revisão: A
+Usuário: arthur
+Pasta Excluída: C:\Users\Arthur\Documents\.Projetos\Projeto - Solidworks\Engenharia_Projetos\000.000 - Broca Auto.Craniotom. 9.0-6.0 EN-1
+Estrutura Removida: CAD, DESENHO, PDF, HISTORICO e controle.json
+----------------------------------------
